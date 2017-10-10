@@ -1,0 +1,27 @@
+﻿@model SchoolDatabase.Models.Database.School
+
+@{
+    ViewBag.Title = "Add School";
+}
+
+<h2>Add School</h2>
+
+
+@using (Html.BeginForm("Add","School")) 
+{
+   
+    <h4>School</h4>
+    @Html.LabelFor(model => model.SchoolId)
+    @Html.EditorFor(Model => Model.SchoolId)
+    <br>
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(Model => Model.Name)
+    <input type="submit" value="Create"/>
+
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

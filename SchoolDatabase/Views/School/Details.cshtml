@@ -1,0 +1,33 @@
+﻿@model SchoolDatabase.Models.Database.School
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>School</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses.ToList()[0])
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Courses.ToList()[0])
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SchoolId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
