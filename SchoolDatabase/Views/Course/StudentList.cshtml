@@ -1,0 +1,48 @@
+﻿@model SchoolDatabase.Models.Database.Course
+
+@{
+    ViewBag.Title = "StudentList";
+}
+
+<h2>StudentList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>       
+    </tr>
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+    </tr>
+
+@foreach (var item in Model.Students) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
+        </td>
+    </tr>
+}
+
+</table>

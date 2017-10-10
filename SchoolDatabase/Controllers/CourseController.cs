@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SchoolDatabase.Models.Database;
 using SchoolDatabase.Controllers.Database;
+using System.Data.Entity;
 
 namespace SchoolDatabase.Controllers
 {
@@ -38,6 +39,12 @@ namespace SchoolDatabase.Controllers
         public ActionResult ShowList()
         {
             return View(Dbc.Course.ToList());
+        }
+
+        public ActionResult StudentList(int id)
+        {
+            var course = Dbc.Course.Include(p => p.Students).Where(p => p.CourseId == id).Single();
+            return View(course);
         }
     }
 }
