@@ -34,5 +34,10 @@ namespace SchoolDatabase.Controllers
             }
             return "Course added to database: " + course.CourseId+", "+course.Name;
         }
+
+        public ActionResult ShowList()
+        {
+            return View(Dbc.Course.ToList());
+        }
     }
 }
