@@ -1,0 +1,23 @@
+﻿@model SchoolDatabase.Models.ViewModels.StudentViewModel
+@{
+    ViewBag.Title = "AddWithCourseList";
+    List<SelectListItem> list = new List<SelectListItem>();
+    foreach (var course in Model.courses)
+    {
+        SelectListItem item = new SelectListItem() { Text = course.Name, Value = course.CourseId.ToString() };
+        list.Add(item);
+    }
+}
+<h2>AddWithCourseList</h2>
+@using (Html.BeginForm("Add", "Student"))
+{
+    <h4>School</h4>
+    @Html.LabelFor(model => model.FirstName)
+    @Html.EditorFor(Model => Model.FirstName)
+    <br>
+    @Html.LabelFor(model => model.LastName)
+    @Html.EditorFor(Model => Model.LastName)
+    <br>
+    @Html.DropDownListFor(m => m.CourseId, list);
+    <input type="submit" value="Create" />
+}
